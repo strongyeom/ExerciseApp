@@ -14,16 +14,22 @@ struct ExampleCircle: View {
     var body: some View {
         
         VStack {
-            ProgressView("쉬는시간",value: duration, total:  10)
-                .padding()
-            Button("타이머 시작") {
-                clickedButton.toggle()
-            }
-            Button("리셋 버튼") {
-                duration = 0
-                clickedButton.toggle()
-            }
+          
             Text(String(format: "%.f", duration))
+                .font(.largeTitle)
+                .padding()
+            ProgressView("쉬는시간",value: duration, total: 10)
+                .padding()
+            HStack {
+                Button("타이머 시작") {
+                    clickedButton.toggle()
+                }
+                Button("리셋 버튼") {
+                    duration = 0
+                    clickedButton.toggle()
+                }
+            }
+            
             }
         .onReceive(timer) { _ in
             if clickedButton {
@@ -31,7 +37,7 @@ struct ExampleCircle: View {
                     duration += 1
                     print(duration)
                     
-                } else {
+                } else if duration == 10 {
                     Timer().invalidate()
                 }
                     

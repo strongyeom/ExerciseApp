@@ -13,13 +13,19 @@ struct ExerciseDetailView: View {
     @Binding var  checked: Bool
     var exercise: Exercise
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             
-            Image(systemName: "flame")
-            HStack {
+            Image("image")
+                .resizable()
+                .frame(width: 200, height: 200)
+                
+            HStack(spacing: 30) {
                 Text(exercise.content)
+                    .font(.title)
+                    
                 Image(systemName: checked ? "checkmark.square.fill" : "square")
                     .foregroundColor(checked ? Color(UIColor.systemBlue) : Color.secondary)
+                    .font(.title2)
                     .onTapGesture {
                         checked.toggle()
                     }

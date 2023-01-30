@@ -11,7 +11,7 @@ struct AddView: View {
     @EnvironmentObject var exerciseStore: ExerciseStore
     @State private var text: String = ""
     @Binding var isShowing: Bool
-
+    
     var body: some View {
         TextField(text: $text) {
             Text("플레이스 홀더 입니다.")
@@ -19,7 +19,6 @@ struct AddView: View {
         Button {
             let example = Exercise(content: text)
             exerciseStore.addExercise(exercise: example, text: text)
-            isShowing.toggle()
         } label: {
             Text("데이터 추가")
         }

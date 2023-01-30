@@ -27,11 +27,15 @@ struct MainView: View {
                             Text(content.content)
                         }
                         .overlay {
-                            Image(systemName: checked ? "checkmark.square.fill" : "square")
-                                .foregroundColor(checked ? Color(UIColor.systemBlue) : Color.secondary)
-                                .onTapGesture {
-                                    checked.toggle()
-                                }
+                            HStack {
+                                Spacer().frame(width: 100)
+                                Image(systemName: checked ? "checkmark.square.fill" : "square")
+                                    .foregroundColor(checked ? Color(UIColor.systemBlue) : Color.secondary)
+                                    .onTapGesture {
+                                        checked.toggle()
+                                    }
+                            }
+                            
                         }
                     }
                     .onDelete(perform: delete)
@@ -40,7 +44,6 @@ struct MainView: View {
                     AddView(isShowing: $isShowing)
                         .presentationDetents([.medium])
                 }
-               
             }
            
             
@@ -51,6 +54,7 @@ struct MainView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         isShowing.toggle()
+                        
                     } label: {
                         Text("추가하기")
                     }
