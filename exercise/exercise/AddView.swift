@@ -13,15 +13,34 @@ struct AddView: View {
     @Binding var isShowing: Bool
     
     var body: some View {
-        TextField(text: $text) {
-            Text("플레이스 홀더 입니다.")
+        VStack {
+            HStack {
+                Button {
+                    isShowing.toggle()
+                } label: {
+                    Text("취소")
+                }
+                Spacer()
+                Button {
+                    let example = Exercise(content: text)
+                    exerciseStore.addExercise(exercise: example, text: text)
+                    isShowing.toggle()
+                } label: {
+                    Text("데이터 추가")
+                }
+            }
+            Spacer().frame(height: 70)
+            TextField(text: $text, axis: .vertical) {
+                Text("운동일지를 기록해주세요")
+                    
+            }
+            .padding()
+            .lineLimit(5...7)
+            .background(Color(red: 220/255, green: 220/255, blue: 220/255))
+            Spacer()
         }
-        Button {
-            let example = Exercise(content: text)
-            exerciseStore.addExercise(exercise: example, text: text)
-        } label: {
-            Text("데이터 추가")
-        }
+        .padding()
+        
     }
 }
 

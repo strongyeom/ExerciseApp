@@ -46,7 +46,8 @@ struct MainView: View {
                 }
             }
            
-            
+            .navigationBarTitle("운동일지")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
