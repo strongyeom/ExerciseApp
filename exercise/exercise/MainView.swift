@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-//let examplearray = ["123", "456", "going", "i can do it"]
 
 struct MainView: View {
     
