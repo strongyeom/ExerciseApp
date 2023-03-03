@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2681C14D29B06C7700572A03 /* CircleTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2681C14C29B06C7700572A03 /* CircleTimerView.swift */; };
 		2685DC9A29ADA0C60003B864 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2685DC9929ADA0C60003B864 /* MainView.swift */; };
 		2685DC9E29ADA11A0003B864 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2685DC9D29ADA11A0003B864 /* CalenderView.swift */; };
 		2685DCA029ADA1E00003B864 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2685DC9F29ADA1E00003B864 /* AddView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2681C14C29B06C7700572A03 /* CircleTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTimerView.swift; sourceTree = "<group>"; };
 		2685DC9929ADA0C60003B864 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2685DC9D29ADA11A0003B864 /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 		2685DC9F29ADA1E00003B864 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				2685DC9D29ADA11A0003B864 /* CalenderView.swift */,
 				2685DC9F29ADA1E00003B864 /* AddView.swift */,
 				2685DCA129ADA2730003B864 /* PlayView.swift */,
+				2681C14C29B06C7700572A03 /* CircleTimerView.swift */,
 				2685DCC429ADCF020003B864 /* Exercise.xcdatamodeld */,
 				2685DCC729ADCF590003B864 /* CoreDataManager.swift */,
 				26A5CD6729A7609F009F208F /* Assets.xcassets */,
@@ -157,6 +160,7 @@
 			files = (
 				26A5CD6629A7609C009F208F /* ContentView.swift in Sources */,
 				2685DCA029ADA1E00003B864 /* AddView.swift in Sources */,
+				2681C14D29B06C7700572A03 /* CircleTimerView.swift in Sources */,
 				2685DCA229ADA2730003B864 /* PlayView.swift in Sources */,
 				2685DC9A29ADA0C60003B864 /* MainView.swift in Sources */,
 				2685DCC629ADCF020003B864 /* Exercise.xcdatamodeld in Sources */,

@@ -90,6 +90,7 @@ struct AddView: View {
             data.content = content
             data.category = categoryString
             data.colorIndex = Int32(colorIndex)
+            data.date = Date.now
             try? viewContext.save() // 저장한다.
         }
     }

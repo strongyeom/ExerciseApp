@@ -13,13 +13,18 @@ struct PlayView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Entity.date, ascending: false)]) private var datas: FetchedResults<Entity>
     
     var data: Entity
-    
+    @Environment(\.dismiss) var dismiss
     @State private var hours: Int = 0
     @State private var minutes: Int = 0
     @State private var seconds: Int = 0
     @State private var timerIsPaused: Bool = true
     @State private var timer: Timer?
+
     
+    // 타이머 사이즈
+    let fontSize: CGFloat = 30
+    
+    /// 시작 타이머
     func startTimer() {
         timerIsPaused = false
         // 1. Make a new timer
@@ -39,18 +44,20 @@ struct PlayView: View {
         }
     }
     
+    /// 중지 타이머
     func stopTimer() {
       timerIsPaused = true
       timer?.invalidate()
       timer = nil
     }
-    
+    /// 리셋 타이머
     func restartTimer(){
       hours = 0
       minutes = 0
       seconds = 0
     }
     
+  
     var body: some View {
         
         
@@ -58,11 +65,24 @@ struct PlayView: View {
             Text(data.title ?? "")
                 .font(.title3)
             Text(data.content ?? "")
+//                .frame(width: 100, height: 100, alignment: .leading)
+//                .minimumScaleFactor(0.5)
+                .padding()
+                .background(Color(red: 211/255, green: 211/255, blue: 211/255))
+                .cornerRadius(12)
+                .padding(.bottom, 15)
+            
+            
             
             // 운동시작 타이머: 타이머 누르면 타이머 작동
-            HStack {
+            HStack(spacing: 20) {
+                Text("운동시작")
+                    .font(.title3)
+                
                 Text(String(format: "%02i:%02i:%02i", hours,minutes,seconds))
-                    .font(.largeTitle)
+                    .font(.system(size: fontSize))
+                    .frame(width: 120, height: 30)
+                    .minimumScaleFactor(0.1)
                 
                 if timerIsPaused {
                     HStack {
@@ -70,39 +90,53 @@ struct PlayView: View {
                             restartTimer()
                             print("Restart")
                         } label: {
-                            Image(systemName: "backward.end.alt")
-                                .padding()
+                           Text("리셋")
                         }
-                        .padding()
+                        .padding(.trailing, 10)
                         
                         Button {
                             startTimer()
                             print("Start")
                         } label: {
-                            Image(systemName: "play.fill")
-                                .padding()
+                           Text("시작")
                         }
-                        .padding()
-                        
                     }
                 } else {
-                    Button {
-                        stopTimer()
-                        print("Stop")
-                    } label: {
-                        Image(systemName: "stop.fill")
-                    }
-                    .padding()
+                    HStack {
+                        Button {
+                            stopTimer()
+                            print("Stop")
+                        } label: {
+                           Text("중지")
+                        }
+                        
+                        Button {
+                            // 레이아웃 맞추기 위해서
+                        } label: {
+                            Text("아여")
+                                .foregroundColor(.white)
+                        }
 
+                    }
                 }
-  
             }
-            // 쉬는 시간 타이머: 시간 설정하고 시작 시간되면 0으로 자동 리셋
             
-            // 운동 종료 버튼: 버튼 누르면 dismiss되면서 화면 사라짐
-            
+            CircleTimerView()
+            HStack {
+                Spacer()
+                // 운동 종료 버튼: 버튼 누르면 dismiss되면서 화면 사라짐
+                Button {
+                    dismiss()
+                    // 운동종료 되면 달력에 표시됌
+                } label: {
+                    Text("운동종료")
+                        .font(.title)
+                }
+                Spacer()
+            }
+           
         }
-        
+        .padding()
     }
 }
 

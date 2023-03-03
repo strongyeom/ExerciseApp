@@ -27,12 +27,13 @@ struct MainView: View {
                     ForEach(datas) { data in
                         NavigationLink {
                             PlayView(data: data)
+                           //EmptyView()
                         } label: {
                                 Rectangle()
                                     .stroke(.mint, lineWidth: 1)
                                     .frame(height: 80)
                                     .overlay {
-                                        
+
                                         HStack {
                                             VStack(alignment: .leading, spacing: 10) {
                                                 HStack {
@@ -47,28 +48,26 @@ struct MainView: View {
                                                                 .frame(width: 45, height: 25, alignment: .center)
                                                         }
                                                         .tint(.white)
-                                                       
+
                                                 }
-                                             
+
                                                 Text(data.title ?? "")
                                                     .font(.title3)
-                                             
+
                                             }
                                             Spacer()
-                                            
+
                                             // 삭제하기 어떻게 만들지 고민해보기
                                             // 1. Alert
                                             // 2. Swiping
-                                            // 3. ContextMemu
-                                            // 4. CustomContextMemu
-                                            
+
                                             Button {
                                               removeData(target: data)
                                             } label: {
                                                 Image(systemName: "trash")
                                                     .tint(.red)
                                             }
-                                           
+
                                         }
                                         .padding(.horizontal, 10)
                                     }
