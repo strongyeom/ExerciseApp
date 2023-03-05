@@ -16,9 +16,10 @@ struct AddView: View {
     @State private var title: String = ""
     @State private var content: String = ""
     @State private var category: String = ""
-    
     @State private var categoryString: String = ""
     @State private var colorIndex: Int = 0
+    @Binding var exampleString: String
+    
     
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
@@ -75,6 +76,7 @@ struct AddView: View {
                     title = ""
                     content = ""
                     category = ""
+                    exampleString = "3월 4일"
                 } label: {
                     Text("저장하기")
                 }
@@ -101,7 +103,7 @@ struct AddView: View {
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            AddView()
+            AddView(exampleString: .constant("3월4일"))
         }
     }
 }
