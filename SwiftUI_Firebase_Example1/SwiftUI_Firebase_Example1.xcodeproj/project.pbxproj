@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		261D40EB29B312B000AECBC6 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261D40EA29B312B000AECBC6 /* DateValue.swift */; };
-		261D40ED29B3134300AECBC6 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261D40EC29B3134300AECBC6 /* Task.swift */; };
 		2681C14D29B06C7700572A03 /* CircleTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2681C14C29B06C7700572A03 /* CircleTimerView.swift */; };
 		2685DC9A29ADA0C60003B864 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2685DC9929ADA0C60003B864 /* MainView.swift */; };
-		2685DC9E29ADA11A0003B864 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2685DC9D29ADA11A0003B864 /* CalenderView.swift */; };
 		2685DCA029ADA1E00003B864 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2685DC9F29ADA1E00003B864 /* AddView.swift */; };
 		2685DCA229ADA2730003B864 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2685DCA129ADA2730003B864 /* PlayView.swift */; };
 		2685DCC629ADCF020003B864 /* Exercise.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2685DCC429ADCF020003B864 /* Exercise.xcdatamodeld */; };
@@ -23,11 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		261D40EA29B312B000AECBC6 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
-		261D40EC29B3134300AECBC6 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		2681C14C29B06C7700572A03 /* CircleTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTimerView.swift; sourceTree = "<group>"; };
 		2685DC9929ADA0C60003B864 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		2685DC9D29ADA11A0003B864 /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 		2685DC9F29ADA1E00003B864 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		2685DCA129ADA2730003B864 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		2685DCC529ADCF020003B864 /* Exercise.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Exercise.xcdatamodel; sourceTree = "<group>"; };
@@ -62,24 +56,6 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		261D40E829B30EEA00AECBC6 /* RecordCalendar */ = {
-			isa = PBXGroup;
-			children = (
-				261D40E929B312A800AECBC6 /* Model */,
-				2685DC9D29ADA11A0003B864 /* CalenderView.swift */,
-			);
-			path = RecordCalendar;
-			sourceTree = "<group>";
-		};
-		261D40E929B312A800AECBC6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				261D40EA29B312B000AECBC6 /* DateValue.swift */,
-				261D40EC29B3134300AECBC6 /* Task.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		26A5CD5729A7609C009F208F = {
 			isa = PBXGroup;
 			children = (
@@ -101,7 +77,6 @@
 			children = (
 				26A5CD6329A7609C009F208F /* SwiftUI_Firebase_Example1App.swift */,
 				261D40E729B30EDB00AECBC6 /* Main */,
-				261D40E829B30EEA00AECBC6 /* RecordCalendar */,
 				2685DCC429ADCF020003B864 /* Exercise.xcdatamodeld */,
 				2685DCC729ADCF590003B864 /* CoreDataManager.swift */,
 				26A5CD6729A7609F009F208F /* Assets.xcassets */,
@@ -192,13 +167,10 @@
 				2685DCA029ADA1E00003B864 /* AddView.swift in Sources */,
 				2681C14D29B06C7700572A03 /* CircleTimerView.swift in Sources */,
 				2685DCA229ADA2730003B864 /* PlayView.swift in Sources */,
-				261D40ED29B3134300AECBC6 /* Task.swift in Sources */,
 				2685DC9A29ADA0C60003B864 /* MainView.swift in Sources */,
 				2685DCC629ADCF020003B864 /* Exercise.xcdatamodeld in Sources */,
 				2685DCC829ADCF590003B864 /* CoreDataManager.swift in Sources */,
-				2685DC9E29ADA11A0003B864 /* CalenderView.swift in Sources */,
 				26A5CD6429A7609C009F208F /* SwiftUI_Firebase_Example1App.swift in Sources */,
-				261D40EB29B312B000AECBC6 /* DateValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,7 @@ var mainCategoies: [Color] = [.red, .yellow, .mint, .gray, .green]
 struct MainView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @State private var exampleString: String = ""
+    @State private var exampleString: Date = Date()
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Entity.date, ascending: false)]) private var datas: FetchedResults<Entity>
     
@@ -36,11 +36,12 @@ struct MainView: View {
                                 .overlay {
                                     HStack {
                                         VStack(alignment: .leading, spacing: 10) {
+                                            
                                             HStack {
-                                                //                                                    Text("\(Date.now, style: .date)")
-                                                //                                                        .font(.footnote)
-                                                //                                                        .foregroundColor(.gray)
-                                                //                                                        .padding(.trailing, 20)
+                                                                                                    Text("\(Date.now, style: .date)")
+                                                                                                        .font(.footnote)
+                                                                                                        .foregroundColor(.gray)
+                                                                                                        .padding(.trailing, 20)
                                                 Text(data.category ?? "")
                                                     .background {
                                                         RoundedRectangle(cornerRadius: 12)
