@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct PlayView: View {
-    
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Entity.date, ascending: false)]) private var datas: FetchedResults<Entity>
-    
+        
     var data: Entity
     @Environment(\.dismiss) var dismiss
     @State private var hours: Int = 0

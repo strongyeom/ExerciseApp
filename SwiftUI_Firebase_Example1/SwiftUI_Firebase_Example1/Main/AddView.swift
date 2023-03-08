@@ -7,45 +7,28 @@
 
 import SwiftUI
 
-var categorys = ["하체", "가슴", "등", "어깨", "팔"]
-var colors: [Color] = [.red, .yellow, .mint, .gray, .green]
 
 struct AddView: View {
     @Environment(\.dismiss) private var dismiss
     
-    @State private var selectDate: Date = Date()
     @State private var title: String = ""
     @State private var content: String = ""
     @State private var category: String = ""
     @State private var categoryString: String = ""
     @State private var colorIndex: Int = 0
-    @Binding var exampleString: Date
     
+    private var categorys = ["하체", "가슴", "등", "어깨", "팔"]
+    private var colors: [Color] = [.red, .yellow, .mint, .gray, .green]
+
     
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Entity.date, ascending: false)]) private var datas: FetchedResults<Entity>
-    
-//    /// 날짜 형식 변경
-//        var updateDateFormatter: DateFormatter {
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.locale = Locale(identifier: "ko_kr")
-//            dateFormatter.timeZone = TimeZone(abbreviation: "KST")
-//            dateFormatter.dateFormat = "yyyy.MM.dd"
-//            return dateFormatter
-//        }
-    
+
     var body: some View {
         
         
 
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                
-//                DatePicker("예시문", selection: $selectDate, displayedComponents: .date)
-//                    .environment(\.locale, Locale.init(identifier: "ko"))
-//                  Text("\(selectDate, formatter: updateDateFormatter)")
-//
                 
                 TextField("제목", text: $title)
                     .padding()
@@ -82,9 +65,6 @@ struct AddView: View {
                     .textInputAutocapitalization(.never)
                     .border(.blue)
                     .frame(height: 300)
-                // Add 버튼을 눌렀을때 날짜가 만들어지고 MainView에서 날짜 보여지게 하기
-                // 날짜는 String으로 보여주면 될거같은데..
-
             }
             .padding()
             .toolbar {
@@ -92,10 +72,6 @@ struct AddView: View {
                     Button {
                         addData()
                         dismiss()
-                        title = ""
-                        content = ""
-                        category = ""
-                        exampleString = selectDate
                     } label: {
                         Text("저장하기")
                     }
@@ -123,7 +99,7 @@ struct AddView: View {
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            AddView(exampleString: .constant(Date()))
+            AddView()
         }
     }
 }

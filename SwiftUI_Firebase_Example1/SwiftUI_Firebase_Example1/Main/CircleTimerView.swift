@@ -6,16 +6,11 @@
 //
 
 import SwiftUI
-import AVFoundation
 
-
-let timer = Timer
-    .publish(every: 1, on: .main, in: .common)
-    .autoconnect()
 
 struct Clock: View {
-    var counter: Int
-    var countTo: Int
+    let counter: Int
+    let countTo: Int
     
     var body: some View {
         VStack {
@@ -47,9 +42,8 @@ struct ProgressTrack: View {
 }
 
 struct ProgressBar: View {
-    var counter: Int
-    var countTo: Int
-    var audioPlayer: AVAudioPlayer?
+    let counter: Int
+    let countTo: Int
     
     var body: some View {
         Circle()
@@ -87,6 +81,10 @@ struct CircleTimerView: View {
     @State private var seconds1: Int = 30
     @State private var seconds2: Int = 40
     @State private var seconds3: Int = 60
+    
+    private var timer = Timer
+        .publish(every: 1, on: .main, in: .common)
+        .autoconnect()
     
     var body: some View {
         HStack(spacing: 40){

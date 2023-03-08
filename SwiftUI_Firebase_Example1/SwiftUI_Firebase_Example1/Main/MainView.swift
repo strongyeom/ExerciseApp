@@ -38,10 +38,10 @@ struct MainView: View {
                                         VStack(alignment: .leading, spacing: 10) {
                                             
                                             HStack {
-                                                                                                    Text("\(Date.now, style: .date)")
-                                                                                                        .font(.footnote)
-                                                                                                        .foregroundColor(.gray)
-                                                                                                        .padding(.trailing, 20)
+                                                Text("\(Date.now, style: .date)")
+                                                    .font(.footnote)
+                                                    .foregroundColor(.gray)
+                                                    .padding(.trailing, 20)
                                                 Text(data.category ?? "")
                                                     .background {
                                                         RoundedRectangle(cornerRadius: 12)
