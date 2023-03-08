@@ -14,6 +14,9 @@ struct Clock: View {
     
     var body: some View {
         VStack {
+            Text("쉬는 시간")
+                .font(.custom("Avenir Next", size: 25))
+                .fontWeight(.black)
             Text(counterToMinutes())
                 .font(.custom("Avenir Next", size: 40))
                 .fontWeight(.black)
@@ -87,15 +90,15 @@ struct CircleTimerView: View {
         .autoconnect()
     
     var body: some View {
-        HStack(spacing: 40){
+        VStack(spacing: 40){
             ZStack{
                 ProgressTrack()
                 ProgressBar(counter: counter, countTo: countTo)
                 Clock(counter: counter, countTo: countTo)
             }
             
-            VStack(spacing: 13) {
-                VStack(spacing: 15) {
+            HStack(spacing: 13) {
+                HStack(spacing: 15) {
                     
                     Button {
                         countTo = seconds1

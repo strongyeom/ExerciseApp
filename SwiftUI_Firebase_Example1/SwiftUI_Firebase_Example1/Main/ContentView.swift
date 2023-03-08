@@ -10,8 +10,17 @@ import SwiftUI
 struct ContentView: View {
 
     var body: some View {
-        
+        TabView {
             MainView()
+                .tabItem {
+                    Label("리스트", systemImage: "doc.fill")
+                }
+            CalendarView()
+                .tabItem {
+                    Label("달력", systemImage: "calendar")
+                }
+        }
+           
     }
 }
 

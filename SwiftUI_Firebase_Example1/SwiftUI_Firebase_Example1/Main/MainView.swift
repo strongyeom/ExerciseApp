@@ -15,22 +15,19 @@ var mainCategoies: [Color] = [.red, .yellow, .mint, .gray, .green]
 
 struct MainView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    
     @State private var exampleString: Date = Date()
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Entity.date, ascending: false)]) private var datas: FetchedResults<Entity>
-    
     var body: some View {
         
         NavigationStack {
             ScrollView {
-                LazyVStack {
+                LazyVStack(spacing: 15) {
                     ForEach(datas) { data in
                         NavigationLink {
                             PlayView(data: data)
-                            //EmptyView()
                         } label: {
-                            Rectangle()
+                            RoundedRectangle(cornerRadius: 12)
                                 .stroke(.mint, lineWidth: 1)
                                 .frame(height: 80)
                                 .overlay {
@@ -38,10 +35,13 @@ struct MainView: View {
                                         VStack(alignment: .leading, spacing: 10) {
                                             
                                             HStack {
-                                                Text("\(Date.now, style: .date)")
-                                                    .font(.footnote)
-                                                    .foregroundColor(.gray)
-                                                    .padding(.trailing, 20)
+                                                if let data = data.date {
+                                                    Text("\(data, style: .date)")
+                                                        .font(.footnote)
+                                                        .foregroundColor(.gray)
+                                                        .padding(.trailing, 20)
+                                                }
+                                               
                                                 Text(data.category ?? "")
                                                     .background {
                                                         RoundedRectangle(cornerRadius: 12)
@@ -54,13 +54,10 @@ struct MainView: View {
                                             
                                             Text(data.title ?? "")
                                                 .font(.title3)
+                                                .foregroundColor(.black)
                                             
                                         }
                                         Spacer()
-                                        
-                                        // 삭제하기 어떻게 만들지 고민해보기
-                                        // 1. Alert
-                                        // 2. Swiping
                                         
                                         Button {
                                             removeData(target: data)
@@ -68,10 +65,10 @@ struct MainView: View {
                                             Image(systemName: "trash")
                                                 .tint(.red)
                                         }
-                                        
                                     }
                                     .padding(.horizontal, 10)
                                 }
+                            // alert을 사용하면 맨 아래것만 지워짐
                         }
                     }
                 }
@@ -82,7 +79,7 @@ struct MainView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
-                        AddView(exampleString: $exampleString)
+                        AddView()
                     } label: {
                         Image(systemName: "plus")
                     }

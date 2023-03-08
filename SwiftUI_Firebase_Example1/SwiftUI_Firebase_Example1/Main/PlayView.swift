@@ -48,7 +48,7 @@ struct PlayView: View {
       timer = nil
     }
     /// 리셋 타이머
-    func restartTimer(){
+    func resetTimer(){
       hours = 0
       minutes = 0
       seconds = 0
@@ -60,10 +60,9 @@ struct PlayView: View {
         
         VStack(alignment: .leading, spacing: 15) {
             Text(data.title ?? "")
-                .font(.title3)
+                .font(.title2)
+                .padding(.bottom, 10)
             Text(data.content ?? "")
-//                .frame(width: 100, height: 100, alignment: .leading)
-//                .minimumScaleFactor(0.5)
                 .padding()
                 .background(Color(red: 211/255, green: 211/255, blue: 211/255))
                 .cornerRadius(12)
@@ -73,7 +72,7 @@ struct PlayView: View {
             
             // 운동시작 타이머: 타이머 누르면 타이머 작동
             HStack(spacing: 20) {
-                Text("운동시작")
+                Text("운동시간")
                     .font(.title3)
                 
                 Text(String(format: "%02i:%02i:%02i", hours,minutes,seconds))
@@ -84,11 +83,12 @@ struct PlayView: View {
                 if timerIsPaused {
                     HStack {
                         Button {
-                            restartTimer()
-                            print("Restart")
+                            resetTimer()
+                            print("Reset")
                         } label: {
                            Text("리셋")
                         }
+                        
                         .padding(.trailing, 10)
                         
                         Button {
@@ -98,6 +98,7 @@ struct PlayView: View {
                            Text("시작")
                         }
                     }
+                    .font(.title3)
                 } else {
                     HStack {
                         Button {
@@ -106,39 +107,53 @@ struct PlayView: View {
                         } label: {
                            Text("중지")
                         }
-                        
+                       
                         Button {
                             // 레이아웃 맞추기 위해서
                         } label: {
-                            Text("아여")
+                            Text("빈칸")
                                 .foregroundColor(.white)
                         }
 
                     }
+                    .font(.title3)
                 }
             }
             
             CircleTimerView()
+                .padding(.bottom, 25)
             HStack {
                 Spacer()
                 // 운동 종료 버튼: 버튼 누르면 dismiss되면서 화면 사라짐
                 Button {
-                    dismiss()
                     // 운동종료 되면 달력에 표시됌
+                    dismiss()
+                    
                 } label: {
                     Text("운동종료")
                         .font(.title)
+                    
                 }
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.roundedRectangle(radius: 18))
+                
                 Spacer()
             }
-           
+           Spacer()
         }
         .padding()
+        // 화면이 사라졌을때 타이머 초기화
+        .onDisappear {
+            stopTimer()
+            resetTimer()
+            print("playView down&TimerReset")
+        }
     }
 }
 
 struct PlayView_Previews: PreviewProvider {
     static var previews: some View {
         PlayView(data: Entity())
+
     }
 }
