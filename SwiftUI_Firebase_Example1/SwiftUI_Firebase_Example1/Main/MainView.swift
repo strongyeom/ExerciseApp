@@ -16,11 +16,12 @@ var mainCategoies: [Color] = [.red, .yellow, .mint, .gray, .green]
 struct MainView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var exampleString: Date = Date()
+    @State private var searchText: String = ""
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Entity.date, ascending: false)]) private var datas: FetchedResults<Entity>
     var body: some View {
         
-        NavigationStack {
+        NavigationView {
             ScrollView {
                 LazyVStack(spacing: 15) {
                     ForEach(datas) { data in
@@ -70,9 +71,16 @@ struct MainView: View {
                                 }
                             // alert을 사용하면 맨 아래것만 지워짐
                         }
+                        
+                        if data.title == searchText {
+                            Text("검색 성공")
+                        } else {
+                            Text("검색 실패")
+                        }
                     }
                 }
             }
+            .searchable(text: $searchText)
             .padding()
             .navigationTitle("운동일지")
             .navigationBarTitleDisplayMode(.inline)
