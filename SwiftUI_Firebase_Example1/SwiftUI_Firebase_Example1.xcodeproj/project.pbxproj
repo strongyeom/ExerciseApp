@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2608BD3129BF766100A484A2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608BD3029BF766100A484A2 /* SearchView.swift */; };
 		2681C14D29B06C7700572A03 /* CircleTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2681C14C29B06C7700572A03 /* CircleTimerView.swift */; };
 		2685DC9A29ADA0C60003B864 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2685DC9929ADA0C60003B864 /* MainView.swift */; };
 		2685DCA029ADA1E00003B864 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2685DC9F29ADA1E00003B864 /* AddView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2608BD3029BF766100A484A2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		2681C14C29B06C7700572A03 /* CircleTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTimerView.swift; sourceTree = "<group>"; };
 		2685DC9929ADA0C60003B864 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2685DC9F29ADA1E00003B864 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 				2685DC9F29ADA1E00003B864 /* AddView.swift */,
 				2685DCA129ADA2730003B864 /* PlayView.swift */,
 				2681C14C29B06C7700572A03 /* CircleTimerView.swift */,
+				2608BD3029BF766100A484A2 /* SearchView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26A5CD6629A7609C009F208F /* ContentView.swift in Sources */,
+				2608BD3129BF766100A484A2 /* SearchView.swift in Sources */,
 				2685DCA029ADA1E00003B864 /* AddView.swift in Sources */,
 				2681C14D29B06C7700572A03 /* CircleTimerView.swift in Sources */,
 				2685DCA229ADA2730003B864 /* PlayView.swift in Sources */,
